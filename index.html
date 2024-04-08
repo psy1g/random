@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Participant Assignment</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Participant Assignment</h1>
+        <p>Please enter your GSES score:</p>
+        <input type="number" id="score" min="10" max="40">
+        <button onclick="assignGroup()">Submit</button>
+        <p id="result"></p>
+    </div>
+
+    <script>
+        function assignGroup() {
+            var score = parseInt(document.getElementById("score").value);
+            var resultElement = document.getElementById("result");
+
+            if (score >= 20) {
+                resultElement.textContent = "You are assigned to Group C.";
+            } else {
+                var randomNumber = Math.random();
+                if (randomNumber < 0.5) {
+                    resultElement.textContent = "You are assigned to Experiment Group P.";
+                } else {
+                    resultElement.textContent = "You are assigned to Experiment Group NP.";
+                }
+            }
+        }
+    </script>
+</body>
+</html>
